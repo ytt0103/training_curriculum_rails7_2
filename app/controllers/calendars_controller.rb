@@ -2,7 +2,7 @@ class CalendarsController < ApplicationController
 
   # カレンダー表示画面
   def index
-    getWeek
+    get_week
     @plan = Plan.new
   end
 
@@ -18,9 +18,8 @@ class CalendarsController < ApplicationController
     params.require(:plan).permit(:date, :plan)
   end
 
-  def getWeek
-    # 曜日表示用の配列
-    wdays = ['(日)', '(月)', '(火)', '(水)', '(木)', '(金)', '(土)']
+  def get_week
+    wdays = ['(日)','(月)','(火)','(水)','(木)','(金)','(土)']
 
     @todays_date = Date.today
     @week_days = []
